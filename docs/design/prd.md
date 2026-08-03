@@ -2,7 +2,7 @@
 doc_type: prd
 status: draft
 depends_on: []
-last_updated: 2026-08-02
+last_updated: 2026-08-03
 ---
 
 # WordForge — PRD
@@ -52,34 +52,42 @@ Writing a new document from an existing draft or template today means either man
 
 ### Import and extract a document
 **Feature:** Document import & extraction
+**As a** Solo Author, **I want** to upload a draft or template document, **so that** I can reuse its structure as the basis for a new document.
 **Given** a user has a `.docx`, PDF, or Markdown file to use as a draft or template, **When** they upload it, **Then** the system extracts its sections and text into an editable, section-structured representation.
 
 ### Generate an initial prompt-guided draft
 **Feature:** Prompt-guided initial draft
+**As a** Solo Author, **I want** to describe the new document I need in a prompt, **so that** I get a structurally faithful first draft to start refining from.
 **Given** an extracted document and a prompt describing the desired new document, **When** the user submits the prompt, **Then** the system produces a first-pass update applied across the extracted structure, ready for co-writing.
 
 ### Navigate the document in co-writer mode
 **Feature:** Co-writer navigation
+**As a** Solo Author, **I want** to move through my document section-by-section or paragraph-by-paragraph, **so that** I can focus my attention and edits at the level of detail I need.
 **Given** a document with an initial draft in place, **When** the user enters co-writer mode, **Then** they can move between sections and paragraphs and see the current text at each level.
 
 ### Edit a single section with AI
 **Feature:** Edit with AI (scoped edit)
+**As a** Solo Author, **I want** the AI to revise only the section or paragraph I select, **so that** I can refine specific parts without affecting the rest of the document.
 **Given** a user has selected a section, subsection, or paragraph, **When** they invoke "Edit with AI" with an instruction, **Then** only that selected scope is revised, leaving the rest of the document unchanged.
 
 ### Cascade an edit to other sections
 **Feature:** Cascading update orchestration
+**As a** Solo Author, **I want** the system to propose and apply related updates across other sections when I make an edit, **so that** my document stays consistent without manually updating every affected section.
 **Given** a user has just edited a section and indicates other sections should be updated accordingly, **When** they request a cascade, **Then** the orchestrator proposes which other sections look affected, and on confirmation spawns one sub-agent per affected section to apply consistent updates.
 
 ### Request a change via chat
 **Feature:** Chat mode
+**As a** Solo Author, **I want** to describe a desired change in conversational language, **so that** I don't have to manually locate and select the exact section to edit.
 **Given** a user is in chat mode, **When** they describe a desired change in natural language, **Then** the orchestrator determines which section(s) it applies to and dispatches the update via the same per-section sub-agent mechanism as a cascade.
 
 ### Review and revert an edit
 **Feature:** Version history & revert
+**As a** Solo Author, **I want** to see the history of AI-driven edits and revert any of them, **so that** I can undo unwanted changes with confidence.
 **Given** a document has one or more AI-driven edits applied, **When** the user opens version history, **Then** they can see prior versions of any changed section and revert a single edit or an entire cascade back to its pre-edit state.
 
 ### Export the finished document
 **Feature:** Export
+**As a** Solo Author, **I want** to export my finished document to `.docx` or PDF, **so that** I can use it outside of WordForge.
 **Given** a document the user is satisfied with, **When** they choose to export, **Then** the system produces a downloadable `.docx` or PDF matching the current state of the document.
 
 ## Success Metrics (KPIs)
